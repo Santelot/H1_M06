@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-5').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - H1 - M06</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_ritual')">
+        <div class="title">
+            <span>🚀 Actividad 1: Saludo y Ritual Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Dar la bienvenida a los Genios y establecer los objetivos de la misión.</div>
+    </div>
+    <div id="saludo_ritual" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 1 "Bienvenida".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hola, Genios. Hoy vamos a explorar cómo la inteligencia artificial puede transformar profesiones tradicionales. ¡Vamos a empezar!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 2 "¿Cómo Están?".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de empezar, quiero ver cómo se sienten hoy. Si están listos para innovar, levanten las manos; si necesitan energía, den una palmada fuerte.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 3 "Gracias por Asistir".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Como siempre, empezamos la misión juntando las manos y haciendo una reverencia. Gracias por asistir a la misión.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 4 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy nos enfocaremos en: 1.- Aprender cómo la IA puede aplicarse en profesiones tradicionales. 2.- Experimentar con ideas para reinventar profesiones usando IA.</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (4 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('state_change')">
+        <div class="title">
+            <span>🧘 Actividad 2: State Change (4 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Ejercicio de visualización para reducir el estrés y mejorar el bienestar emocional.</div>
+    </div>
+    <div id="state_change" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 4 "Ejercicio de Visualización".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, vamos a repetir un ejercicio que ya conocemos: la visualización. Esto nos ayudará a reducir el estrés y mejorar nuestro bienestar emocional.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Indicar a los estudiantes que cierren los ojos.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Cierra los ojos e imagina un lugar tranquilo y feliz. Puede ser cualquier lugar que te haga sentir en paz. Mantén esa imagen en tu mente.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1 minuto): Proyectar Diapositiva 5 con cronómetro.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Invitar a los estudiantes a abrir los ojos lentamente.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, lentamente abran los ojos. Este ejercicio es genial para reducir el estrés y ayudarnos a concentrarnos mejor. ¡Vamos a continuar con energía renovada!</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 3 (4 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('team_gnius')">
+        <div class="title">
+            <span>🤝 Actividad 3: Team Gnius (4 pasos)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Formación y organización de equipos para la actividad.</div>
+    </div>
+    <div id="team_gnius" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Formación de Equipos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, para este ejercicio, vuelvan a formar los equipos con los que trabajaron en la misión anterior.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 7 con cronómetro.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 8 "Recojan sus Magic Tablets".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora, un representante de cada equipo, por favor pase al frente a recoger una Magic Tablet para su equipo.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (1 minuto): Proyectar Diapositiva 9 con cronómetro.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 4 (9 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('challenge')">
+        <div class="title">
+            <span>🏆 Actividad 4: Challenge (9 pasos)</span>
+            <span>⏰ Tiempo: 24 minutos</span>
+        </div>
+        <div class="subtitle">Rediseñar una profesión utilizando IA.</div>
+    </div>
+    <div id="challenge" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 10 "Challenge".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, hoy vamos a rediseñar una profesión usando IA, para convertir a un profesional en un 'Augmented Human'. Esto significa mejorar y potenciar sus capacidades con tecnología, llevando la profesión al siguiente nivel.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 11 "Instrucciones del Challenge".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Elijan una profesión de su elección, como un maestro, un doctor, un abogado, o un diseñador gráfico. Piensen en las tareas más repetitivas y aburridas que podría tener esa profesión, como tomar notas manuales, gestionar citas, o buscar información en archivos. Usando las herramientas de IA que encontraron la clase pasada, piensen cómo podrían automatizar o mejorar estos procesos. Por ejemplo, un asistente virtual puede agendar citas automáticamente, o una IA de generación de texto puede ayudar a redactar reportes. ¡Es momento de ser creativos y reimaginar cómo la IA puede transformar estas profesiones!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (10 minutos): Proyectar Diapositiva 12 con cronómetro.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 13 "Compartir con el Equipo".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Tómense unos minutos para compartir su profesión rediseñada con el equipo que tienen más cerca. Expliquen cómo eligieron la profesión, qué tareas automatizaron, y cómo creen que esto mejoraría el trabajo del profesional. Esta es una gran oportunidad para obtener ideas y feedback de sus compañeros.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (5 minutos): Proyectar Diapositiva 14 con cronómetro.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (1.5 minutos): Proyectar Diapositiva 15 "Presentación de Rediseños".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora voy a seleccionar a tres de ustedes para que compartan brevemente cómo rediseñaron la profesión que eligieron. En un minuto, expliquen el enfoque que tomaron y cómo la IA transformó las tareas dentro de esa profesión.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (3 minutos): Proyectar Diapositiva 16 con cronómetro.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (0.5 minutos): Proyectar Diapositiva 17 "Revisión de Objetivos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de cerrar, revisemos nuestros objetivos del día: 1.- Aprender cómo la IA puede aplicarse en profesiones tradicionales. 2.- Experimentar con ideas para reinventar profesiones usando IA. Reflexionemos sobre qué aprendimos hoy y cómo podemos aplicar estos conceptos.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (0.5 minutos): Proyectar Diapositiva 18 "You've Got Mon-e".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Excelente trabajo, Genios! Han demostrado creatividad y visión al reimaginar estas profesiones con IA. Como recompensa, ¡todos han ganado Mon-e! Continúen explorando y aplicando estas ideas.</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 5 (3 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('honor_dojo')">
+        <div class="title">
+            <span>🏆 Actividad 5: Honor The Dojo (3 pasos)</span>
+            <span>⏰ Tiempo: 1.5 minutos</span>
+        </div>
+        <div class="subtitle">Honrar el espacio y mantener el orden.</div>
+    </div>
+    <div id="honor_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 19 "Honor The Dojo".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Para cerrar, vamos a honrar nuestro espacio recogiendo y dejando todo en orden. Asegurémonos de que el lugar quede mejor de como lo encontramos.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Indicar a los estudiantes que recojan y devuelvan las tablets.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Por favor, devuelvan las Magic Tablets al frente y asegúrense de que su área esté limpia y ordenada. Gracias.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 20 "Despedida".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Si disfrutaron de la misión de hoy, levanten los brazos y muevan las manos para decir adiós. Nos vemos en la próxima misión.</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</body>
+</html>
+
